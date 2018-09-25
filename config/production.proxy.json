@@ -1,0 +1,7 @@
+{
+  "/quote": {
+    "target": "https://hello-ci-cd-production.herokuapp.com",
+    "secure": true,
+    "changeOrigin": true
+  }
+}

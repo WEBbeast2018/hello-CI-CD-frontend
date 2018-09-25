@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {QuotesService} from './quotes.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hello-ci-cd-frontend';
+  title = 'CI/CD Demo';
+  version = '1.0.3';
+  quote = 'This is a simple text. Click the button to get a quote';
+  quoteSource = '';
+
+  constructor(private quotesService: QuotesService) {
+  }
+
+  getQuote() {
+    this.quotesService.getQuote().subscribe(data => {
+      this.quote = data.body;
+      this.quoteSource = data.source;
+    });
+  }
 }
