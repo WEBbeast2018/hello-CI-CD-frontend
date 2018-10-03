@@ -8,7 +8,7 @@ import {QuotesService} from './quotes.service';
 })
 export class AppComponent {
   title = 'CI/CD Demo';
-  version = '1.0.3';
+  version = '1.6.0';
   quote = 'This is a simple text. Click the button to get a quote';
   quoteSource = '';
 
