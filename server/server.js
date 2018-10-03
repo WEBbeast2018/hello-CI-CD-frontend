@@ -2,7 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const app = express();
-const proxyConfig = JSON.parse(fs.readFileSync('../config/production.proxy.json'));
+
+const rootPath = __dirname.substr(0, __dirname.length - 'server'.length);
+const proxyConfig = JSON.parse(fs.readFileSync(`${rootPath}/config/production.proxy.json`));
 const proxyUrl = proxyConfig['/quote'].target + '/quote';
 const axios = require('axios');
 
@@ -14,7 +16,7 @@ app.use(function (req, res, next) {
 });
 
 // static files
-app.use(express.static(path.join(__dirname, '../dist/hello-ci-cd-frontend')));
+app.use(express.static(path.join(__dirname.substr(0, __dirname.length - 'server'.length), '/dist/hello-ci-cd-frontend')));
 
 // backend API
 app.use('/quote', (req, res) => {
@@ -24,7 +26,7 @@ app.use('/quote', (req, res) => {
 
 // index file
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/hello-ci-cd-frontend/index.html'));
+  res.sendFile(path.join(__dirname, '/dist/hello-ci-cd-frontend/index.html'));
 });
 
 
