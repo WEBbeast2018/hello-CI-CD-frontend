@@ -4,7 +4,8 @@
   "main": "server/server.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config config/production.proxy.json",
+    "start": "node server/server.js",
+    "dev-p": "ng serve --proxy-config config/production.proxy.json",
     "dev": "ng serve --proxy-config config/local.proxy.json",
     "build": "ng build --prod",
     "test": "ng test",
