@@ -1,6 +1,7 @@
 # HelloCiCdFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
+See branches for different steps
 
 ## Development server
 
